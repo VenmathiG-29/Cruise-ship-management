@@ -1,0 +1,117 @@
+/* Responsive Reset & Base Styles */
+body, h1, h2, h3, input, button, select, textarea {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f8f9fa;
+  color: #222;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header, footer {
+  background-color: #003366;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+nav {
+  margin: 1rem 0;
+}
+
+nav button, nav select {
+  margin: 0 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+main {
+  flex: 1;
+  max-width: 1200px;
+  margin: 1rem auto;
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+form input, form select, form textarea, form button {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.5rem;
+  margin-top: 0.7rem;
+  margin-bottom: 1rem;
+  display: block;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+form button {
+  background-color: #003366;
+  color: white;
+  font-weight: 700;
+  border: none;
+}
+
+.hidden {
+  display: none;
+}
+
+#notification {
+  background-color: #007bff;
+  color: white;
+  padding: 1rem;
+  border-radius: 5px;
+  margin: 1rem auto;
+  max-width: 400px;
+}
+#role-select {
+  margin-left: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #004080;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#order-history-list li {
+  border-bottom: 1px solid #ddd;
+  padding: 0.7rem 0;
+  font-size: 0.9rem;
+}
+
+section#voyager-order-history {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background-color: #eef5f9;
+  border-radius: 8px;
+}
+
+#user-dashboard { background: #e4f1fa; padding: 1rem; border-radius: 8px; }
+#announcement-section { background: #fffbe6; margin-top: 1rem; border-radius: 8px; }
+#profile-pic { width: 60px; height: 60px; border-radius: 50%; border: 2px solid #004080; }
+#notification-center { position: fixed; top: 1.5rem; right: 2rem; }
+#notification-bell { background: none; border: none; font-size: 1.6rem; position: relative; }
+#notification-count { background: #e74c3c; color: white; border-radius: 50%; padding: 2px 8px; font-size: 0.9rem; position: absolute; top: -10px; right: -10px; }
+.modal { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; z-index: 999; background: rgba(0,0,0,0.5);}
+.modal .modal-content { background: white; padding: 2rem; border-radius: 7px; position: relative;}
+.close-btn { position: absolute; top: 1rem; right: 1rem; font-size: 1.2rem; cursor: pointer; }
+#notification-center { position: fixed; top: 1.2rem; right: 2rem; z-index: 1000; }
+#notification-bell { font-size: 1.5rem; background: none; border: none; cursor: pointer; position: relative; }
+#notification-count { background: #e74c3c; color: white; border-radius: 50%; padding: 2px 8px; font-size: 0.9rem; position: absolute; top: -10px; right: -10px; }
+#notification-dropdown { position: absolute; right: 0; top: 35px; min-width: 220px; background: white; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0 2px 6px #ccc; padding: 8px; }
+.notification-item { border-bottom: 1px solid #eee; padding: 8px 4px; }
+.notification-item:last-child { border-bottom: none; }

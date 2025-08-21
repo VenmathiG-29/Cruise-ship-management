@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cruise Ship Management</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>
+  <h1>Cruise Ship Management System</h1>
+  <nav id="nav-bar">
+    <button id="btn-login">Login/Register</button>
+    <button id="btn-logout" class="hidden">Logout</button>
+    <select id="role-select" class="hidden" aria-label="Select role"></select>
+    <button id="btn-dashboard" class="hidden">Open Dashboard</button>
+  </nav>
+  <div id="notification" class="hidden"></div>
+</header>
+
+<main>
+  <!-- Auth Section -->
+  <section id="auth-section">
+    <h2>Sign In / Register</h2>
+    <form id="auth-form" autocomplete="off">
+      <input type="email" id="auth-email" placeholder="Email" required autocomplete="username" />
+      <input type="password" id="auth-password" placeholder="Password" required autocomplete="current-password" />
+      <button type="submit" id="auth-login-btn">Login</button>
+      <button type="button" id="auth-register-btn">Register</button>
+    </form>
+    <div id="auth-message"></div>
+  </section>
+
+  <!-- Dashboard container - dynamically populated -->
+  <section id="dashboard" class="hidden"></section>
+</main>
+
+<footer>
+  <p>© 2025 Cruise Ship Management</p>
+</footer>
+
+<script type="module" src="firebase-config.js"></script>
+<script type="module" src="logging.js"></script>
+<script type="module" src="auth.js"></script>
+<script type="module" src="voyager.js"></script>
+<script type="module" src="admin.js"></script>
+<script type="module" src="manager.js"></script>
+<script type="module" src="headCook.js"></script>
+<script type="module" src="supervisor.js"></script>
+<script type="module" src="utils.js"></script>
+<!-- Add after nav buttons in header -->
+<select id="role-select" class="hidden" aria-label="Select role">
+  <option value="">Select Role</option>
+  <option value="voyager">Voyager</option>
+  <option value="admin">Admin</option>
+  <option value="manager">Manager</option>
+  <option value="headCook">Head Cook</option>
+  <option value="supervisor">Supervisor</option>
+</select>
+
+<!-- Add Voyager Order History section -->
+<section id="voyager-order-history" class="hidden">
+  <h2>Your Order History</h2>
+  <ul id="order-history-list"></ul>
+</section>
+<!-- Manager booking section -->
+<section id="manager-booking-section" class="hidden">
+  <h2>Manager Bookings</h2>
+  <label for="booking-type-select">Select Booking Type:</label>
+  <select id="booking-type-select">
+    <option value="resortMovie">Resort Movie</option>
+    <option value="beautySalon">Beauty Salon</option>
+    <option value="fitnessCenter">Fitness Center</option>
+    <option value="partyHall">Party Hall</option>
+  </select>
+  <ul id="manager-booking-list"></ul>
+</section>
+
+<!-- Head Cook section -->
+<section id="head-cook-section" class="hidden">
+  <h2>Catering Orders - Head Cook</h2>
+  <ul id="catering-orders-list"></ul>
+</section>
+
+<!-- Supervisor section -->
+<section id="supervisor-section" class="hidden">
+  <h2>Stationery Orders - Supervisor</h2>
+  <ul id="stationery-orders-list"></ul>
+</section>
+
+<!-- User Dashboard -->
+<section id="user-dashboard" class="hidden">
+  <h2>Welcome, <span id="user-display-name"></span>!</h2>
+  <div id="profile-summary">
+    <!-- Profile image, contact info, loyalty points -->
+    <img id="profile-pic" src="default-profile.png" alt="Profile Picture" />
+    <div>
+      <p>Email: <span id="profile-email"></span></p>
+      <p>Loyalty Points: <span id="loyalty-points"></span>
+        <progress id="loyalty-progress" max="100" value="0"></progress>
+      </p>
+    </div>
+  </div>
+  <div id="dashboard-quick-links">
+    <!-- Fast access links/buttons for orders, bookings, favorites, feedback, etc. -->
+  </div>
+</section>
+
+<!-- Upcoming Events/Announcements -->
+<section id="announcement-section">
+  <h3>Ship News & Upcoming Events</h3>
+  <ul id="announcement-list"></ul>
+</section>
+
+<!-- Feedback or Complaint Form -->
+<section id="feedback-section" class="hidden">
+  <h3>Submit Feedback or Complaint</h3>
+  <form id="feedback-form">
+    <textarea id="feedback-message" required placeholder="Describe your feedback, issue, or suggestion"></textarea>
+    <button type="submit">Send</button>
+  </form>
+</section>
+
+<!-- Cancellation Option Modal/Dialog -->
+<div id="cancel-modal" class="modal hidden">
+  <div class="modal-content">
+    <span class="close-btn" id="cancel-close">&times;</span>
+    <h3>Cancel Booking/Order</h3>
+    <form id="cancel-form">
+      <label>Reason for cancellation:</label>
+      <textarea required id="cancel-reason"></textarea>
+      <button type="submit">Confirm Cancel</button>
+    </form>
+  </div>
+</div>
+
+<!-- PDF Download Button for Bookings/Orders -->
+<button id="download-receipt-btn" class="hidden">Download Receipt PDF</button>
+
+<!-- Notification Center (Bell) -->
+<div id="notification-center">
+  <button id="notification-bell"><span>🔔</span><span id="notification-count">0</span></button>
+  <div id="notification-dropdown" class="hidden"></div>
+</div>
+
+<!-- Multi-step Order/Booking Wizard Example -->
+<section id="order-wizard-section" class="hidden">
+  <h3>Place a Catering/Booking Order</h3>
+  <div id="wizard-steps">
+    <!-- Step 1: Select type/item, Step 2: Details, Step 3: Confirm -->
+  </div>
+  <button id="wizard-prev" class="hidden">Previous</button>
+  <button id="wizard-next">Next</button>
+</section>
+
+<!-- Favorites/Wishlist -->
+<section id="favorites-section" class="hidden">
+  <h3>Your Favorites</h3>
+  <ul id="favorites-list"></ul>
+</section>
+
+<!-- Ship Directory/Map -->
+<section id="ship-directory-section">
+  <h3>Ship Directory & Map</h3>
+  <input type="text" id="directory-search" placeholder="Search restaurants, theaters, etc." />
+  <div id="ship-map"></div>
+</section>
+
+<script type="module" src="feedback.js"></script>
+<script type="module" src="notification.js"></script>
+
+<div id="notification-center">
+  <button id="notification-bell">
+    🔔 <span id="notification-count">0</span>
+  </button>
+  <div id="notification-dropdown" class="hidden"></div>
+</div>
+
+<section id="feedback-section" class="hidden">
+  <h3>Submit Feedback or Complaint</h3>
+  <form id="feedback-form">
+    <textarea id="feedback-message" required placeholder="Describe your feedback, issue, or suggestion"></textarea>
+    <button type="submit">Send</button>
+  </form>
+  <div id="feedback-response"></div>
+</section>
+
+</body>
+</html>
