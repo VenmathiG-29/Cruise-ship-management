@@ -1,48 +1,37 @@
-# Cruise Ship Management System
+# Danaos Tourism
 
-## Overview
-The **Cruise Ship Management System** is a web-based application designed to efficiently manage cruise ship operations, including passenger booking, cabin allocation, staff management, cruise scheduling, and onboard services.  
-It aims to streamline workflows, enhance customer experience, and ensure smooth daily operations for cruise companies.
+## Live Link : - https://danaoscruise.vercel.app/
 
-## Features
+## Tech Stack
+- React JS,
+- Redux
+- Chakara UI
+- Vercel (for Deployment)
 
-### Passenger Management
-- Register and manage passenger profiles
-- Book and cancel cruise tickets
-- Assign cabins and manage passenger preferences
-
-### Cabin & Booking Management
-- View cabin availability in real-time
-- Assign cabins based on passenger requirements
-- Manage booking history and cancellations
-
-### Staff Management
-- Add, edit, and track staff members
-- Assign staff to specific cruise trips
-- Track staff roles and responsibilities
-
-### Cruise Scheduling
-- Create and manage cruise itineraries
-- Monitor available cruises and routes
-- Manage cruise departure and arrival times
-
-### Onboard Services Management
-- Manage restaurants, entertainment, and other onboard facilities
-- Track usage and availability of services
-- Optimize services for better passenger experience
-
-### Reports & Analytics
-- Generate reports for passengers, staff, and bookings
-- Analyze occupancy rates and revenue statistics
-- Track operational efficiency of cruises
-
-## Technology Stack
-- **Frontend:** HTML, CSS, JavaScript, React (optional)  
-- **Backend:** Node.js, Express.js  
-- **Database:** MongoDB / MySQL  
-- **Authentication:** JWT / OAuth  
-- **Deployment:** Heroku / AWS / Local Server  
+## Features :
+- User Create Account
+- Book Cruise Dinner
+- Admin Dashboard
+- User Dashboard
+- Admin Manage Booking and Package
 
 
-Author
-[Venmathi G] - Creator and Maintainer
+## Homepage :-
+![image](https://github.com/VishalBhuse/Cruise_Danaos_Com/assets/101569259/3f74651b-e6db-4a81-8677-58431e492dc4)
+![image](https://github.com/VishalBhuse/Cruise_Danaos_Com/assets/101569259/3a72752d-bc4a-47a1-b388-637c25cee57a)
+
+
+# Getting Started with Create React App
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Available Scripts
+
+In the project directory, you can run:
+
+### `npm start`
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+The page will reload when you make changes.\
