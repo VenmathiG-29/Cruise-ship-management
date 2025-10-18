@@ -12,10 +12,9 @@ import {
 import { Input, InputGroup, InputLeftElement, Text } from "@chakra-ui/react";
 import React from "react";
 import { BiSearch } from "react-icons/bi";
-import { AiTwotoneDelete } from "react-icons/ai";
-import { IoMdDownload } from "react-icons/io";
+import { AiTwotoneDelete, AiFillPlusSquare } from "react-icons/ai";
 
-const AdminBill = () => {
+const AdminDetails = () => {
   return (
     <>
       <Box w="90%" mx="auto" bg="#081839">
@@ -28,82 +27,88 @@ const AdminBill = () => {
           borderTopLeftRadius={["0px", "0px", "0px", "150px"]}
           borderTopRightRadius={["0px", "0px", "0px", "150px"]}
         >
-          <Box w="90%" mx="auto" h="10vh" display={"grid"} placeItems="center">
-            <Box mt="5">
-              <InputGroup>
-                <InputLeftElement
-                  pointerEvents="none"
-                  children={<BiSearch />}
-                  py={["10px", "10px", "10px", "25px"]}
-                  fontSize="25px"
-                />
-                <Input
-                  py={["10px", "10px", "10px", "25px"]}
-                  type="text"
-                  fontSize={["10px", "10px", "15px", "17px", "18px"]}
-                  letterSpacing={"5px"}
-                  placeholder="Search with ID..."
-                  w={{ base: "200px", sm: "300px", md: "400px", lg: "450px" }}
-                  backgroundColor={"#FFFFFF"}
-                  border="2px solid #000000"
-                />
-              </InputGroup>
-            </Box>
-          </Box>
-
           <Box w="90%" mx="auto">
             <Box pt="5" pb="3" w="100%" mx="auto" mb="1">
               <HStack
                 w="90%"
                 mx="auto"
-                justifyContent={"space-between"}
-                flexDirection={["column", "row", "row", "row"]}
+                justifyContent={"space-around"}
+                flexDirection={["column", "column", "row", "row"]}
+                // spacing="4rem"
               >
-                <Text
-                  fontSize={{ sm: "18px", md: "24px", lg: "30px" }}
-                  fontWeight="700"
-                >
-                  Billing
-                </Text>
-                <Button
-                  leftIcon={<AiTwotoneDelete />}
-                  background="#F1CC5C"
-                  borderRadius="5px"
-                  fontWeight="700"
-                  size={{ base: "xs", sm: "sm", md: "md", lg: "md" }}
-                  fontSize={{ sm: "12px", md: "14px", lg: "14px" }}
-                  lineHeight="15px"
-                  color="#081839"
-                >
-                  Delete
-                </Button>
-              </HStack>
-
-              <HStack
-                mt="5"
-                justifyContent={"space-between"}
-                flexDirection={["column", "row", "row", "row"]}
-              >
-                <Text
-                  fontSize={{ sm: "18px", md: "24px", lg: "30px" }}
-                  fontWeight="700"
-                >
-                  All Files
-                </Text>
-                <Button
-                  leftIcon={<IoMdDownload />}
-                  background="#081839"
-                  _hover={{ background: "#081839" }}
-                  border-radius="5px"
-                  color="#F2CD5C"
-                  borderRadius="5px"
-                  size={{ base: "xs", sm: "sm", md: "md", lg: "md" }}
-                  fontWeight="700"
-                  fontSize={{ sm: "12px", md: "14px", lg: "14px" }}
-                  lineHeight="15px"
-                >
-                  Send Bill
-                </Button>
+                <Box>
+                  <InputGroup mb="5px">
+                    <InputLeftElement
+                      pointerEvents="none"
+                      children={<BiSearch />}
+                      py={["10px", "10px", "10px", "25px"]}
+                      fontSize="25px"
+                    />
+                    <Input
+                      fontSize={["10px", "10px", "15px", "17px", "18px"]}
+                      py={["10px", "10px", "10px", "25px"]}
+                      type="text"
+                      letterSpacing={"5px"}
+                      placeholder="Search with ID..."
+                      w={{
+                        base: "200px",
+                        sm: "300px",
+                        md: "400px",
+                        lg: "450px",
+                      }}
+                      backgroundColor={"#FFFFFF"}
+                      border="2px solid #000000"
+                    />
+                  </InputGroup>
+                </Box>
+                <Box>
+                  <HStack
+                    spacing={"8"}
+                    w="100%"
+                    mx="auto"
+                    justifyContent={[
+                      "center",
+                      "flex-start",
+                      "flex-end",
+                      "flex-end",
+                    ]}
+                  >
+                    <Button
+                      leftIcon={<AiFillPlusSquare />}
+                      background="#F1CC5C"
+                      borderRadius="5px"
+                      fontWeight="700"
+                      size={{ base: "xs", sm: "sm", md: "md", lg: "md" }}
+                      fontSize={{
+                        base: "10px",
+                        sm: "12px",
+                        md: "14px",
+                        lg: "14px",
+                      }}
+                      lineHeight="15px"
+                      color="#081839"
+                    >
+                      Add New
+                    </Button>
+                    <Button
+                      leftIcon={<AiTwotoneDelete />}
+                      background="#F1CC5C"
+                      borderRadius="5px"
+                      fontWeight="700"
+                      size={{ base: "xs", sm: "sm", md: "md", lg: "md" }}
+                      fontSize={{
+                        base: "10px",
+                        sm: "12px",
+                        md: "14px",
+                        lg: "14px",
+                      }}
+                      lineHeight="15px"
+                      color="#081839"
+                    >
+                      Delete
+                    </Button>
+                  </HStack>
+                </Box>
               </HStack>
             </Box>
           </Box>
@@ -357,4 +362,4 @@ const AdminBill = () => {
   );
 };
 
-export default AdminBill;
+export default AdminDetails;

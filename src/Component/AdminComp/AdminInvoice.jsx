@@ -12,10 +12,11 @@ import {
 import { Input, InputGroup, InputLeftElement, Text } from "@chakra-ui/react";
 import React from "react";
 import { BiSearch } from "react-icons/bi";
-import { AiTwotoneDelete } from "react-icons/ai";
 import { IoMdDownload } from "react-icons/io";
+import { AiTwotoneDelete } from "react-icons/ai";
+import { MdPictureAsPdf } from "react-icons/md";
 
-const AdminBill = () => {
+const AdminInvoice = () => {
   return (
     <>
       <Box w="90%" mx="auto" bg="#081839">
@@ -38,9 +39,9 @@ const AdminBill = () => {
                   fontSize="25px"
                 />
                 <Input
+                  fontSize={["10px", "10px", "15px", "17px", "18px"]}
                   py={["10px", "10px", "10px", "25px"]}
                   type="text"
-                  fontSize={["10px", "10px", "15px", "17px", "18px"]}
                   letterSpacing={"5px"}
                   placeholder="Search with ID..."
                   w={{ base: "200px", sm: "300px", md: "400px", lg: "450px" }}
@@ -54,60 +55,38 @@ const AdminBill = () => {
           <Box w="90%" mx="auto">
             <Box pt="5" pb="3" w="100%" mx="auto" mb="1">
               <HStack
-                w="90%"
-                mx="auto"
                 justifyContent={"space-between"}
                 flexDirection={["column", "row", "row", "row"]}
               >
-                <Text
-                  fontSize={{ sm: "18px", md: "24px", lg: "30px" }}
-                  fontWeight="700"
-                >
-                  Billing
-                </Text>
+                <Box>
+                  <Text
+                    fontSize={{ sm: "18px", md: "24px", lg: "30px" }}
+                    fontWeight="700"
+                  >
+                    Invoices
+                  </Text>
+                  <Text
+                    fontWeight="600"
+                    fontSize={{ sm: "8px", md: "10px", lg: "13px" }}
+                  >
+                    Download your previous bills reciepts and details.
+                  </Text>
+                </Box>
                 <Button
                   leftIcon={<AiTwotoneDelete />}
                   background="#F1CC5C"
                   borderRadius="5px"
                   fontWeight="700"
-                  size={{ base: "xs", sm: "sm", md: "md", lg: "md" }}
                   fontSize={{ sm: "12px", md: "14px", lg: "14px" }}
                   lineHeight="15px"
+                  size={{ base: "xs", sm: "sm", md: "md", lg: "md" }}
                   color="#081839"
                 >
                   Delete
                 </Button>
               </HStack>
-
-              <HStack
-                mt="5"
-                justifyContent={"space-between"}
-                flexDirection={["column", "row", "row", "row"]}
-              >
-                <Text
-                  fontSize={{ sm: "18px", md: "24px", lg: "30px" }}
-                  fontWeight="700"
-                >
-                  All Files
-                </Text>
-                <Button
-                  leftIcon={<IoMdDownload />}
-                  background="#081839"
-                  _hover={{ background: "#081839" }}
-                  border-radius="5px"
-                  color="#F2CD5C"
-                  borderRadius="5px"
-                  size={{ base: "xs", sm: "sm", md: "md", lg: "md" }}
-                  fontWeight="700"
-                  fontSize={{ sm: "12px", md: "14px", lg: "14px" }}
-                  lineHeight="15px"
-                >
-                  Send Bill
-                </Button>
-              </HStack>
             </Box>
           </Box>
-
           <Box
             w="100%"
             mx="auto"
@@ -118,6 +97,7 @@ const AdminBill = () => {
               <Thead>
                 <Tr>
                   <Th
+                    px="0"
                     textAlign="center"
                     textTransform={"capitalize"}
                     border="1px solid #081839"
@@ -126,7 +106,7 @@ const AdminBill = () => {
                     color={"#000000"}
                     fontSize={["10px", "14px", "15px", "15px"]}
                   >
-                    customer names
+                    Invoice
                   </Th>
                   <Th
                     textAlign="center"
@@ -136,37 +116,7 @@ const AdminBill = () => {
                     fontSize={["10px", "14px", "15px", "15px"]}
                     border="1px solid #081839"
                   >
-                    Sent Date
-                  </Th>
-                  <Th
-                    textAlign="center"
-                    textTransform={""}
-                    fontWeight={"700"}
-                    color={"#000000"}
-                    fontSize={["10px", "14px", "15px", "15px"]}
-                    border="1px solid #081839"
-                  >
-                    Amount
-                  </Th>
-                  <Th
-                    textAlign="center"
-                    textTransform={""}
-                    fontWeight={"700"}
-                    color={"#000000"}
-                    fontSize={["10px", "14px", "15px", "15px"]}
-                    border="1px solid #081839"
-                  >
-                    ID
-                  </Th>
-                  <Th
-                    textAlign="center"
-                    textTransform={""}
-                    fontWeight={"700"}
-                    color={"#000000"}
-                    fontSize={["10px", "14px", "15px", "15px"]}
-                    border="1px solid #081839"
-                  >
-                    Date
+                    Billing Date
                   </Th>
                   <Th
                     textAlign="center"
@@ -185,9 +135,32 @@ const AdminBill = () => {
                     color={"#000000"}
                     fontSize={["10px", "14px", "15px", "15px"]}
                     border="1px solid #081839"
+                  >
+                    ID
+                  </Th>
+
+                  <Th
+                    textAlign="center"
+                    textTransform={""}
+                    fontWeight={"700"}
+                    color={"#000000"}
+                    fontSize={["10px", "14px", "15px", "15px"]}
+                    border="1px solid #081839"
                     borderRight="none"
                   >
-                    Status
+                    <Button
+                      leftIcon={<IoMdDownload />}
+                      fontWeight="700"
+                      background="#081839"
+                      _hover={{ background: "#081839" }}
+                      border-radius="5px"
+                      color="#F2CD5C"
+                      size={{ base: "xs", sm: "sm", md: "md", lg: "md" }}
+                      px="20px"
+                      py="10px"
+                    >
+                      Download all
+                    </Button>
                   </Th>
                 </Tr>
               </Thead>
@@ -198,140 +171,71 @@ const AdminBill = () => {
                     fontWeight={"500"}
                     textAlign="center"
                     border="none"
-                    py="2"
                     borderRight="1px solid #000000"
                   >
-                    Customer Name
+                    <HStack
+                      flexDirection={["column", "row", "row", "row"]}
+                      fontSize={["10px", "12px", "14px", "14px"]}
+                    >
+                      <Text>
+                        <MdPictureAsPdf fontSize={"24px"} />
+                      </Text>
+                      <Text>INVOICE #12345 - MAR 2023</Text>
+                    </HStack>
                   </Td>
                   <Td
                     fontSize={["10px", "12px", "14px", "14px"]}
                     fontWeight={"500"}
                     textAlign="center"
                     border="none"
-                    py="2"
+                    color="black"
                     borderRight="1px solid #000000"
                   >
-                    Sent Date
+                    MAR, 01, 2023
                   </Td>
                   <Td
                     fontSize={["10px", "12px", "14px", "14px"]}
                     fontWeight={"500"}
                     textAlign="center"
                     border="none"
-                    py="2"
                     borderRight="1px solid #000000"
+                    color="#277E1F"
                   >
-                    Amount
+                    Rs. 4999
                   </Td>
                   <Td
                     fontSize={["10px", "12px", "14px", "14px"]}
                     fontWeight={"500"}
                     textAlign="center"
                     border="none"
-                    py="2"
                     borderRight="1px solid #000000"
+                    color="#0B4D8A"
                   >
-                    ID
+                    #12345
                   </Td>
                   <Td
                     fontSize={["10px", "12px", "14px", "14px"]}
                     fontWeight={"500"}
                     textAlign="center"
                     border="none"
-                    py="2"
-                    borderRight="1px solid #000000"
                   >
-                    Date
-                  </Td>
-                  <Td
-                    fontSize={["10px", "12px", "14px", "14px"]}
-                    fontWeight={"500"}
-                    textAlign="center"
-                    border="none"
-                    py="2"
-                    borderRight="1px solid #000000"
-                  >
-                    Price
-                  </Td>
-                  <Td
-                    fontSize={["10px", "12px", "14px", "14px"]}
-                    fontWeight={"500"}
-                    textAlign="center"
-                    border="none"
-                    py="2"
-                  >
-                    Status
-                  </Td>
-                </Tr>
-                <Tr>
-                  <Td
-                    fontSize={["10px", "12px", "14px", "14px"]}
-                    fontWeight={"500"}
-                    textAlign="center"
-                    border="none"
-                    py="2"
-                    borderRight="1px solid #000000"
-                  >
-                    Customer Name
-                  </Td>
-                  <Td
-                    fontSize={["10px", "12px", "14px", "14px"]}
-                    fontWeight={"500"}
-                    textAlign="center"
-                    border="none"
-                    py="2"
-                    borderRight="1px solid #000000"
-                  >
-                    Sent Date
-                  </Td>
-                  <Td
-                    fontSize={["10px", "12px", "14px", "14px"]}
-                    fontWeight={"500"}
-                    textAlign="center"
-                    border="none"
-                    py="2"
-                    borderRight="1px solid #000000"
-                  >
-                    Amount
-                  </Td>
-                  <Td
-                    fontSize={["10px", "12px", "14px", "14px"]}
-                    fontWeight={"500"}
-                    textAlign="center"
-                    border="none"
-                    py="2"
-                    borderRight="1px solid #000000"
-                  >
-                    ID
-                  </Td>
-                  <Td
-                    fontSize={["10px", "12px", "14px", "14px"]}
-                    fontWeight={"500"}
-                    textAlign="center"
-                    border="none"
-                    py="2"
-                    borderRight="1px solid #000000"
-                  >
-                    Date
-                  </Td>
-                  <Td
-                    fontSize={["10px", "12px", "14px", "14px"]}
-                    fontWeight={"500"}
-                    textAlign="center"
-                    border="none"
-                    py="2"
-                    borderRight="1px solid #000000"
-                  >
-                    Price
-                  </Td>
-                  <Td
-                    fontSize={["10px", "12px", "14px", "14px"]}
-                    fontWeight={"500"}
-                    textAlign="center"
-                    border="none"
-                    py="2"
-                  >
-                    Status
+                    <Button
+                      leftIcon={<IoMdDownload />}
+                      fontWeight="700"
+                      size={{ base: "xs", sm: "sm", md: "md", lg: "md" }}
+                      border="2px solid #081839"
+                      border-radius="5px"
+                      color="#081839"
+                      px="20px"
+                      py="10px"
+                      background="#fff"
+                      _hover={{
+                        background: "#081839",
+                        color: "#fff",
+                      }}
+                    >
+                      Download
+                    </Button>
                   </Td>
                 </Tr>
               </Tbody>
@@ -357,4 +261,4 @@ const AdminBill = () => {
   );
 };
 
-export default AdminBill;
+export default AdminInvoice;
