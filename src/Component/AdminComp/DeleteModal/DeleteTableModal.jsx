@@ -6,29 +6,27 @@ import {
   AlertDialogHeader,
   AlertDialogOverlay,
   Button,
-  Text,
   useDisclosure,
 } from "@chakra-ui/react";
 import React from "react";
 import { AiFillDelete } from "react-icons/ai";
 import { useDispatch } from "react-redux";
-import { DeltePackageApi } from "../../../Redux/action/package.action";
+import { DeltePackageTableApi } from "../../../Redux/action/package.action";
 
-const DeletePackageModal = ({ id, packName }) => {
+const DeleteTableModal = ({ packageId, tableid }) => {
+  // console.log(packageId, tableid);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const cancelRef = React.useRef();
   const dispatch = useDispatch();
 
-  const handleDelete = () => {
-    dispatch(DeltePackageApi(`${id}`));
-
-    onClose();
+  const handledeletetable = () => {
+    dispatch(DeltePackageTableApi(packageId, tableid));
   };
 
   return (
     <>
       <Button colorScheme="#fff" onClick={onOpen}>
-        <AiFillDelete cursor={"pointer"} fontSize={"22px"} color="#dc3544" />
+        <AiFillDelete fontSize="20px" color="#dc3544" />
       </Button>
 
       <AlertDialog
@@ -43,19 +41,14 @@ const DeletePackageModal = ({ id, packName }) => {
             </AlertDialogHeader>
 
             <AlertDialogBody>
-              Are you sure? You want to delete{" "}
-              <Text as="span" fontWeight={"500"} textTransform="capitalize">
-                {" "}
-                {packName}{" "}
-              </Text>
-              .
+              Are you sure? You want to delete this Table.
             </AlertDialogBody>
 
             <AlertDialogFooter>
               <Button ref={cancelRef} onClick={onClose}>
                 Cancel
               </Button>
-              <Button colorScheme="red" onClick={handleDelete} ml={3}>
+              <Button colorScheme="red" onClick={handledeletetable} ml={3}>
                 Delete
               </Button>
             </AlertDialogFooter>
@@ -66,4 +59,4 @@ const DeletePackageModal = ({ id, packName }) => {
   );
 };
 
-export default DeletePackageModal;
+export default DeleteTableModal;
