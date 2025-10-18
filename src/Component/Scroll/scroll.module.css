@@ -1,0 +1,29 @@
+.topbtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    background: #5e5df0;
+    border-radius: 50%;
+    box-shadow: #5e5df0 0 10px 20px -10px;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 15px;
+    width: 40px;
+    height: 40px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .icon {
+    font-size: 1.3rem;
+    animation: gototop 1.2s linear infinite alternate-reverse;
+  }
+  @keyframes gototop {
+    0% {
+      transform: translateY(-0.5rem);
+    }
+    100% {
+      transform: translateY(0.5rem);
+    }
+  }
